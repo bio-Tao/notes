@@ -1144,7 +1144,7 @@ plt.show()
 
 该图展示给定类别变量的频率分布。
 
-```
+```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
 
@@ -1173,19 +1173,21 @@ plt.title(f"Stacked Histogram of ${x_var}$ colored by ${groupby_var}$",
           fontsize=22)
 plt.xlabel(x_var)
 plt.ylabel("Frequency")
-plt.ylim(0, 40)
-plt.xticks(ticks=bins,
+plt.ylim(0,40)
+
+plt.xticks(ticks=bins[1:]-0.25,
            labels=np.unique(df[x_var]).tolist(),
            rotation=90,
-           horizontalalignment='left')
+           horizontalalignment='right')
 plt.show()
+
 ```
 
 ## 23、密度图(Density Plot)
 
 该图展示连续变量的分布情况。
 
-```
+```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
 
@@ -1221,7 +1223,7 @@ plt.show()
 
 ## 24、带直方图的密度图(Density Curves with Histogram)
 
-```
+```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
 
@@ -1255,8 +1257,8 @@ plt.show()
 
 该图展示大量分组之间的关系，比heatmap形象。
 
-```
-!pip install joypy#安装依赖包
+```python
+#!pip install joypy#安装依赖包
 #每组数据绘制核密度图，R中有ggjoy
 import joypy
 # Import Data
@@ -1280,7 +1282,7 @@ plt.show()
 
 分布点图显示了按组划分的点的单变量分布。点色越浅，该区域中数据点的集中度越高。通过对中位数进行不同的着色，各组的实际位置会立即变得明显。
 
-```
+```python
 import matplotlib.patches as mpatches
 
 # Prepare Data
@@ -1309,19 +1311,19 @@ ax.hlines(y=df.index,
 # Draw the Dots
 for i, make in enumerate(df.manufacturer):
     df_make = df_raw.loc[df_raw.manufacturer == make, :]
+    print(df_make)
     ax.scatter(y=np.repeat(i, df_make.shape[0]),
-               x='cty',
-               data=df_make,
+               x=df_make['cty'],
+            #    data=df_make,
                s=75,
                edgecolors='#01a2d9',
                c='w',
                alpha=0.5)
     ax.scatter(y=i,
-               x='cty',
-               data=df_median.loc[df_median.index == make, :],
+               x=df_median.loc[df_median.index == make, :]['cty'],
+            #    data=df_median.loc[df_median.index == make, :],
                s=75,
                c='#dc2624')
-
 # Annotate
 ax.text(33,
         13,
