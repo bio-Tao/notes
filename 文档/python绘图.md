@@ -1,4 +1,4 @@
-目录
+# 目录
 
 ```
 准备工作
@@ -466,7 +466,6 @@ sns.heatmap(
 plt.show()
 ```
 
-
 ## 10、矩阵图 （Pairwise Plot）
 
 数据探索阶段必备工具，用来探索各个数值型变量之间关系。
@@ -479,7 +478,6 @@ df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/iris_t
 sns.pairplot(df)
 plt.show()
 ```
-
 
 给每个特征加入分类。
 
