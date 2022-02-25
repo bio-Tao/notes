@@ -121,6 +121,9 @@ plt.title("Scatterplot of Midwest Area vs Population", fontsize=12)
 plt.legend(fontsize=10)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%95%A3%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.2.边界气泡图（Bubble plot with Encircling）
 该图也是一类散点图，只不使用边界圈住一部分点，以强调其重要性。
@@ -203,6 +206,9 @@ plt.title("Bubble Plot with Encircling", fontsize=14)
 plt.legend(fontsize=10)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%95%8C%E6%B0%94%E6%B3%A1%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.3.散点图添加趋势线（Scatter plot with linear regression line of best fit）
 添加趋势线反映两个变量是正相关、负相关或者无相关关系。
@@ -231,6 +237,9 @@ gridobj.fig.set_size_inches(10, 6)
 plt.title("Scatterplot with line of best fit grouped by number of cylinders")
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%95%A3%E7%82%B9%E5%9B%BE%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BF.png" style="zoom: 67%;" />
+</div>
 
 ## 3.4.分面散点图添加趋势线（Each regression line in its own column）
 添加趋势线反映两个变量是正相关、负相关或者无相关关系。
@@ -258,6 +267,9 @@ gridobj.set(xlim=(0.5, 7.5), ylim=(10, 45))
 gridobj.fig.set_size_inches(10, 6)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E9%9D%A2%E6%95%A3%E7%82%B9%E5%9B%BE%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BF.png" style="zoom: 67%;" />
+</div>
 
 ## 3.5.抖动图（Jittering with stripplot）
 多个点具有完全相同的X和Y值, 为避免多个点相互绘制并隐藏，可稍微抖动点，以便直观地看到它们。
@@ -280,6 +292,9 @@ sns.set(style="whitegrid", font_scale=1.1)
 plt.title('Use jittered plots to avoid overlapping of points')
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%8A%96%E5%8A%A8%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.6.计数图（Counts Plot）
 区别于抖动图，多个点相互绘制并隐藏时，可使用点的大小区分重叠的程度，点的大小越大，周围的点的集中度就越大，重叠的越多。
@@ -302,6 +317,9 @@ sns.set(style="whitegrid", font_scale=1.1)
 plt.title('Counts Plot - Size of circle is bigger as more points overlap')
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%AE%A1%E6%95%B0%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.7.边缘直方图（Marginal Histogram）
 用于展示X和Y之间的关系、及X和Y的单变量分布情况，常用于数据探索分析。
@@ -358,6 +376,9 @@ xlabels = ax_main.get_xticks().tolist()
 ax_main.set_xticklabels(xlabels)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%BC%98%E7%9B%B4%E6%96%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ```python
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
@@ -370,6 +391,9 @@ g = sns.jointplot(
 )
 g.fig.set_size_inches(10, 8)  #设置图尺寸
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%BC%98%E7%9B%B4%E6%96%B9%E5%9B%BE%EF%BC%88serborn%EF%BC%89.png" style="zoom: 67%;" />
+</div>
 
 ## 3.8.边缘箱图（Marginal Boxplot）
 类似于边缘直方图，不过箱线图有助于精确定位变量的分位数。
@@ -423,6 +447,9 @@ for item in ([ax_main.xaxis.label, ax_main.yaxis.label] +
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%BC%98%E7%AE%B1%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.9.相关性热图（Correlogram）
 直观地度量给定Data Frame (or 2D array)中所有可能的数值变量对之间的相关性差异。
@@ -445,6 +472,9 @@ sns.heatmap(
 )
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%9B%B8%E5%85%B3%E6%80%A7%E7%83%AD%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 3.10.矩阵图 （Pairwise Plot）
 数据探索阶段必备工具，用来探索各个数值型变量之间关系。
@@ -457,6 +487,9 @@ df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/iris_t
 sns.pairplot(df)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%9F%A9%E9%98%B5%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 给每个特征加入分类。
 
@@ -472,6 +505,9 @@ sns.pairplot(df,
              plot_kws=dict(s=80, edgecolor="white", linewidth=2.5))
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%9F%A9%E9%98%B5%E5%9B%BE%E5%88%86%E7%B1%BB.png" style="zoom: 67%;" />
+</div>
 
 
 # 4. 偏差 （Deviation）关系图
@@ -504,6 +540,9 @@ plt.title('Diverging Bars of Car Mileage')
 plt.grid(linestyle='--', alpha=0.5)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 4.2.发散型文本图（Diverging Texts）-水平方向
 和上一个图的区别是该图在柱子上添加了数值文本。
@@ -534,6 +573,9 @@ plt.xlim(-2.5, 2.5)
 plt.show()
 #垂直版感兴趣可以改改就可以了
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE%E5%8A%A0%E6%96%87%E6%9C%AC%EF%BC%88%E6%B0%B4%E5%B9%B3%EF%BC%89.png" style="zoom: 67%;" />
+</div>
 
 ## 4.3.发散型文本图（Diverging Texts）-垂直方向
 ```python
@@ -570,6 +612,9 @@ plt.title('Diverging Text Bars of Car Mileage', fontdict={'size': 12})
 plt.grid(linestyle='--', alpha=0.5)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE%E5%8A%A0%E6%96%87%E6%9C%AC%EF%BC%88%E5%9E%82%E7%9B%B4%EF%BC%89.png" style="zoom: 67%;" />
+</div>
 
 ## 4.4.发散型点图（Diverging Dot Plot）
 与发散性文本图的区别是缺失柱子，减少了组之间的对比差异。
@@ -609,6 +654,9 @@ plt.grid(linestyle='--', alpha=0.5)
 plt.xlim(-2.5, 2.5)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 4.5.带Marker的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）
 使用不同形状，强调重点关注的数据区域。
@@ -678,6 +726,9 @@ plt.title('Diverging Bars of Car Mileage', fontdict={'size': 15})
 plt.grid(linestyle='--', alpha=0.5)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 4.6.面积图（Area Chart）
 将曲线与坐标轴之间区域上色得面积图，面积图能够很好的展示整体与局部数据的关系，直观展示整体走势、展示不同元素的涨跌状况。
@@ -735,6 +786,9 @@ plt.ylabel('Monthly returns %', fontsize=12)
 plt.grid(alpha=0.5)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 # 5. 排序 （Ranking）关系图
 
@@ -790,6 +844,9 @@ fig.add_artist(p1)
 fig.add_artist(p2)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%8E%92%E5%BA%8F%E6%9F%B1%E5%BD%A2%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 5.2.棒棒糖图(Lollipop Chart)
 将上面的柱子换做棒棒即可，效果也一样~~
@@ -838,6 +895,9 @@ for row in df.itertuples():
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 5.3.点图 （Dot Plot）
 将上面的棒棒去掉并水平放置即可，效果也一样~~ ，在水平方向展示各个指标的排名情况。
@@ -877,6 +937,9 @@ plt.xticks(fontsize=12)
 ax.set_xlim(10, 27)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 5.4.坡图（Slope Chart）
 很好的比较多项目两个不同时期的情况。
@@ -993,6 +1056,9 @@ plt.gca().spines["right"].set_alpha(.0)
 plt.gca().spines["left"].set_alpha(.0)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%9D%A1%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 5.5.哑铃图（Dumbbell Plot）
 很好的比较多个项目两个不同时期的情况、更重要的是还会展示不同项目的排序信息。
@@ -1066,6 +1132,9 @@ ax.set_xticks([.05, .1, .15, .20])
 ax.set_xticklabels(['5%', '15%', '20%', '25%'], fontdict={'size': 15})
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%93%91%E9%93%83%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 # 6. 分布（Distribution）关系图
 
@@ -1105,6 +1174,9 @@ plt.ylabel("Frequency")
 plt.xticks(ticks=bins[::3], labels=[round(b, 1) for b in bins[::3]])
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BF%9E%E7%BB%AD%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.2.类别变量堆积直方图（Stacked Histogram for Categorical Variable）
 该图展示给定类别变量的频率分布。
@@ -1145,8 +1217,10 @@ plt.xticks(ticks=bins[1:]-0.25,
            rotation=90,
            horizontalalignment='right')
 plt.show()
-
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%B1%BB%E5%88%AB%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.3.密度图(Density Plot)
 该图展示连续变量的分布情况。
@@ -1184,6 +1258,9 @@ plt.title('Density Plot of City Mileage by n_Cylinders', fontsize=18)
 plt.legend()
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%AF%86%E5%BA%A6%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.4.带直方图的密度图(Density Curves with Histogram)
 ```python
@@ -1215,6 +1292,9 @@ plt.title('Density Plot of City Mileage by Vehicle Type', fontsize=18)
 plt.legend()
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B8%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E5%AF%86%E5%BA%A6%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.5.山峰叠峦图(Joy Plot)
 该图展示大量分组之间的关系，比heatmap形象。
@@ -1239,6 +1319,9 @@ fig, axes = joypy.joyplot(mpg,
 plt.title('Joy Plot of City and Highway Mileage by Class', fontsize=18)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B1%B1%E5%B3%B0%E5%8F%A0%E5%B3%A6%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.6.分布点图(Distributed Dot Plot)
 分布点图显示了按组划分的点的单变量分布。点色越浅，该区域中数据点的集中度越高。通过对中位数进行不同的着色，各组的实际位置会立即变得明显。
@@ -1314,6 +1397,9 @@ plt.gca().spines["left"].set_visible(False)
 plt.grid(axis='both', alpha=.4, linewidth=.1)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E5%B8%83%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.7.箱图（boxplot）
 很好的展示数据的分布情况~
@@ -1358,6 +1444,9 @@ plt.title('Box Plot of Highway Mileage by Vehicle Class', fontsize=16)
 plt.ylim(10, 40)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%AE%B1%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.8.箱图结合点图（Dot + Box Plot）
 该图展示箱图及箱图绘制所用的详细点。
@@ -1391,6 +1480,9 @@ plt.title('Box Plot of Highway Mileage by Vehicle Class', fontsize=18)
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%AE%B1%E5%9B%BE%E5%8A%A0%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.9.小提琴图（Violin Plot）
 比箱图更好看，但不常用，小提琴的形状或面积由该位置数据次数决定。
@@ -1412,6 +1504,9 @@ sns.violinplot(x='class',
 plt.title('Violin Plot of Highway Mileage by Vehicle Class', fontsize=18)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B0%8F%E6%8F%90%E7%90%B4%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.10.金字塔图(Population Pyramid)
 可以理解为一种排过序的分组水平柱状图barplot，可很好展示不同分组之间的差异，可可视化逐级过滤或者漏斗的每个阶段。
@@ -1446,6 +1541,9 @@ plt.title("Population Pyramid of the Marketing Funnel", fontsize=18)
 plt.legend()
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%87%91%E5%AD%97%E5%A1%94%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 6.11.分类图（Categorical Plots）
 展示彼此相关多个（>=2个）分类变量的计数分布，其实就是seaborn的分面图。
@@ -1465,6 +1563,9 @@ g = sns.catplot("alive",
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E7%B1%BB%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ```python
 # Plot
@@ -1482,6 +1583,9 @@ sns.catplot(x="age",
             cut=0,
             bw=.2)
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E7%B1%BB%E5%9B%BE-1.png" style="zoom: 67%;" />
+</div>
 
 # 7. 组成（Composition）关系图
 
@@ -1529,6 +1633,9 @@ fig = plt.figure(FigureClass=Waffle,
                  figsize=(12, 9))
 
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8D%8E%E5%A4%AB%E9%A5%BC%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ```python
 from pywaffle import Waffle
@@ -1627,6 +1734,9 @@ fig = plt.figure(
     figsize=(12, 14))
 
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8D%8E%E5%A4%AB%E9%A5%BC%E5%9B%BE-1.png" style="zoom: 67%;" />
+</div>
 
 ## 7.2.饼图（Pie Chart）
 ```
@@ -1642,6 +1752,9 @@ plt.title("Pie Chart of Vehicle Class - Bad")
 plt.ylabel("")
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%A5%BC%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ```python
 # Import
@@ -1682,6 +1795,9 @@ plt.setp(autotexts, size=10, weight=700)
 ax.set_title("Class of Vehicles: Pie Chart")
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%A5%BC%E5%9B%BE-1.png" style="zoom: 67%;" />
+</div>
 
 ## 7.3.树状图（Treemap）
 类似饼图的效果，面积大小反应变量大小。
@@ -1708,6 +1824,9 @@ plt.title('Treemap of Vechile Class')
 plt.axis('off')
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%A0%91%E7%8A%B6%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 7.4.柱状图（Bar Chart）
 柱子高度表示变量大小。
@@ -1748,6 +1867,9 @@ plt.ylabel('# Vehicles')
 plt.ylim(0, 45)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 # 8. 变化（Change）关系图
 
@@ -1783,6 +1905,9 @@ plt.gca().spines["right"].set_alpha(0.0)
 plt.gca().spines["left"].set_alpha(0.3)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.2.波峰和波谷添加注释的时间序列图（Time Series with Peaks and Troughs Annotated）
 ```python
@@ -1849,6 +1974,9 @@ plt.legend(loc='upper left')
 plt.grid(axis='y', alpha=.3)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%B3%A8%E9%87%8A%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.3.自相关和部分自相关图（Autocorrelation (ACF) and Partial Autocorrelation (PACF) Plot）
 自相关，展示时间序列与其自身滞后的相关性。
@@ -1881,6 +2009,9 @@ ax1.tick_params(axis='both', labelsize=12)
 ax2.tick_params(axis='both', labelsize=12)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%87%AA%E7%9B%B8%E5%85%B3%E5%92%8C%E9%83%A8%E5%88%86%E8%87%AA%E7%9B%B8%E5%85%B3%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.4.交叉相关图（Cross Correlation plot）
 展示两个时间序列相互之间的滞后。
@@ -1915,8 +2046,10 @@ plt.title('Cross Correlation Plot: mdeaths vs fdeaths',
           fontsize=18)
 plt.xlim(0, len(ccs))
 plt.show()
-
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E4%BA%A4%E5%8F%89%E7%9B%B8%E5%85%B3%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.5.时间序列分解图（Time Series Decomposition Plot）
 该图将时间序列分解为趋势、季节和残差分量（trend, seasonal and residual components.）。
@@ -1939,6 +2072,9 @@ plt.figure(figsize=(12, 7), dpi=80)
 result.plot().suptitle('Time Series Decomposition of Air Passengers')
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E8%A7%A3%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.6.多重时间序列图（Multiple Time Series）
 ```python
@@ -2003,6 +2139,9 @@ plt.ylim(y_LL, y_UL)
 plt.xlim(-2, 80)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%A4%9A%E9%87%8D%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.7.双坐标系时间序列图（Plotting with different scales using secondary Y axis）
 ```python
@@ -2040,6 +2179,9 @@ ax2.set_title(
 fig.tight_layout()
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.8.带误差阴影的时间序列图（Time Series with Error Bands）
 ```python
@@ -2089,6 +2231,9 @@ for y in range(5, 10, 1):
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%AF%AF%E5%B7%AE%E9%98%B4%E5%BD%B1%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.9.堆积面积图（Stacked Area Chart）
 ```python
@@ -2136,6 +2281,9 @@ plt.gca().spines["left"].set_alpha(.3)
 
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.10.非堆积面积图（Area Chart UnStacked）
 ```python
@@ -2192,6 +2340,9 @@ plt.gca().spines["right"].set_alpha(0)
 plt.gca().spines["left"].set_alpha(.3)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%9D%9E%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 8.11.季节图（Seasonal Plot）
 该图比较某个指标在不同年份同一天/年/月/周等的时间序列的表现。
@@ -2245,6 +2396,10 @@ plt.gca().spines["left"].set_alpha(0.5)
 # plt.legend(loc='upper right', ncol=2, fontsize=12)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%AD%A3%E8%8A%82%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
+
 
 # 9. 分组（ Groups）关系图
 
@@ -2269,6 +2424,9 @@ plt.xticks(fontsize=12)
 plt.yticks(fontsize=12)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%81%9A%E7%B1%BB%E6%A0%91%E5%BD%A2%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 9.2.聚类图（Cluster Plot）
 通过聚类计算距离，将同一类圈起来。
@@ -2335,6 +2493,9 @@ plt.yticks(fontsize=12)
 plt.title('Agglomerative Clustering of USArrests (5 Groups)', fontsize=18)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%81%9A%E7%B1%BB%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
 
 ## 9.3.安德鲁斯曲线（Andrews Curve）
 展示是否存在基于给定分组的特征的固有分组。例如下图，如果数据集中的列不能帮助区分组（cyl），则行将不会被很好地分隔开。
@@ -2363,6 +2524,9 @@ plt.xticks(fontsize=12)
 plt.yticks(fontsize=12)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%96%AF%E6%9B%B2%E7%BA%BF.png" style="zoom: 67%;" />
+</div>
 
 ## 9.4.平行坐标图（Parallel Coordinates）
 展示某个特征是否有助于分组。如果一个特征隔离，分组受到影响，则该特征对该分组非常必要。
@@ -2389,3 +2553,6 @@ plt.xticks(fontsize=12)
 plt.yticks(fontsize=12)
 plt.show()
 ```
+<div align=center>
+    <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B9%B3%E8%A1%8C%E5%9D%90%E6%A0%87%E5%9B%BE.png" style="zoom: 67%;" />
+</div>
