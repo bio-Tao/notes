@@ -4,12 +4,12 @@
 - [1. python基础](#1-python基础)
 - [2. numpy](#2-numpy)
 - [3. pandas](#3-pandas)
-  - [创建对象](#创建对象)
-  - [查看数据](#查看数据)
-  - [数据提取](#数据提取)
-  - [缺失值处理](#缺失值处理)
-  - [操作](#操作)
-  - [读取和输出文件](#读取和输出文件)
+  - [3.1. 创建对象](#31-创建对象)
+  - [3.2. 查看数据](#32-查看数据)
+  - [3.3. 数据提取](#33-数据提取)
+  - [3.4. 缺失值处理](#34-缺失值处理)
+  - [3.5. 操作](#35-操作)
+  - [3.6. 读取和输出文件](#36-读取和输出文件)
 - [4. sklearn](#4-sklearn)
 - [5. matplotlib](#5-matplotlib)
   - [5.1. 绘图风格、画布、子图设置](#51-绘图风格画布子图设置)
@@ -39,7 +39,7 @@
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E9%80%9F%E6%9F%A5/Python%E9%80%9F%E6%9F%A5_pandas-2.jpg" style="zoom: 100%;" />
 </div>
 
-## 创建对象
+## 3.1. 创建对象
 ```python
 # 创建Series
 s = pd.Series([1, 3, 5, np.nan, 6, 8])
@@ -58,7 +58,7 @@ df = pd.DataFrame(
    )  # 通过字典创建
 ```
 
-## 查看数据
+## 3.2. 查看数据
 ```python
 # 每一列数据类型
 df.dtypes
@@ -82,7 +82,7 @@ df.sort_index(axis=1, ascending=False)  # 列名降序排列
 df.sort_values(by="B")  # 通过某列值排序
 ```
 
-## 数据提取
+## 3.3. 数据提取
 ```python
 # 提取列
 df["A"]
@@ -100,7 +100,7 @@ df[df > 0]
 df2[df2["E"].isin(["two", "four"])]
 ```
 
-## 缺失值处理
+## 3.4. 缺失值处理
 ```python
 # 删除有NaN值的所有行
 df1.dropna(how="any")
@@ -110,7 +110,7 @@ df1.fillna(value=5)
 pd.isna(df1)
 ```
 
-## 操作
+## 3.5. 操作
 ```python
 # 均值
 df.mean()  # 列均值
@@ -144,7 +144,7 @@ df.astype("int")
 df["raw_grade"].astype("category")
 ```
 
-## 读取和输出文件
+## 3.6. 读取和输出文件
 ```python
 # 输出到excel
 df.to_excel("foo.xlsx", sheet_name="Sheet1")
