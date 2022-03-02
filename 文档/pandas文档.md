@@ -3,10 +3,16 @@
 - [1. 输入、输出](#1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA)
     - [1.1. csv文件](#11-csv%E6%96%87%E4%BB%B6)
     - [1.2. excel文件](#12-excel%E6%96%87%E4%BB%B6)
-- [2. 一般功能能](#2-%E4%B8%80%E8%88%AC%E5%8A%9F%E8%83%BD%E8%83%BD)
+- [2. 一般功能](#2-%E4%B8%80%E8%88%AC%E5%8A%9F%E8%83%BD)
     - [2.1. 数据操作](#21-%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C)
     - [2.2. 缺失值](#22-%E7%BC%BA%E5%A4%B1%E5%80%BC)
     - [2.3. 转换为数字](#23-%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%95%B0%E5%AD%97)
+- [3. DataFrame](#3-dataframe)
+    - [3.1. 属性和基础数据](#31-%E5%B1%9E%E6%80%A7%E5%92%8C%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE)
+    - [3.2. 转换](#32-%E8%BD%AC%E6%8D%A2)
+    - [3.3. 索引、迭代](#33-%E7%B4%A2%E5%BC%95%E8%BF%AD%E4%BB%A3)
+    - [3.4. 二元运算符函数](#34-%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0)
+    - [3.5. Function application, GroupBy & window](#35-function-application-groupby--window)
 
 <!-- /TOC -->
 
@@ -118,7 +124,7 @@ DataFrame.to_excel(
     )
 ```
 
-# 2. 一般功能能
+# 2. 一般功能
 
 ## 2.1. 数据操作
 ```python
@@ -240,4 +246,223 @@ pandas.to_numeric(
         arg,  # data (scalar, list, tuple, 1-d array, or Series)
         errors='raise'  # 忽然无效解析，无效解析引发异常，无效解析转化为空值 ("ignore", "raise", "coerce")
     )
+```
+
+# 3. DataFrame
+
+## 3.1. 属性和基础数据
+```python
+# DataFrame 的索引
+DataFrame.index
+# DataFrame 的列名
+DataFrame.columns
+# 每列的数据类型
+DataFrame.dtypes
+
+# 打印 DataFrame 的简明摘要
+DataFrame.info(
+        verbose=None,  # 是否打印完整的摘要 (bool)
+        buf=None,  
+        max_cols=None,  
+        memory_usage=None,  # 是否应显示DataFrame元素(包括索引)的总内存使用情况 (bool, str)
+        show_counts=None,  # 是否显示非空计数 (bool)
+        null_counts=None
+    )
+
+# 根据列 dtypes 返回 DataFrame 列的子集
+DataFrame.select_dtypes(
+        include=None,  # 是否包含 (bool)
+        exclude=None  # 是否排除 (bool)
+    )
+
+# 返回 DataFrame 的 Numpy 表示 
+DataFrame.values  # 建议使用 DataFrame.to_numpy()
+# 返回一个表示轴数/数组维数的 int
+DataFrame.ndim
+# 返回一个表示此对象中元素数量的 int
+DataFrame.size
+# 返回一个表示 DataFrame 维度的元组
+DataFrame.shape
+
+# 返回每列的内存使用量
+DataFrame.memory_usage(
+        index=True,  # 是否在返回的 Series 中包含 DataFrame 索引的内存使用情况 (bool)
+        deep=False  # 是否不object 类型系统级内存消耗 (bool)
+    )
+
+# 指示 Series/DataFrame 是否为空
+DataFrame.empty  # 存在任何一个维度为0才返回True
+```
+
+## 3.2. 转换
+```python
+# 将 pandas 对象转换为指定的 dtype
+DataFrame.astype(
+        dtype,  # 需要转换的类型 (data type, or dict of column name -> data type)
+        copy=True, # 是否返回副本 (bool)
+        errors='raise' # 许引发异常，忽略异常返回原值 ("raise", "ignore")
+    )
+
+# 更改为最佳数据类型
+DataFrame.convert_dtypes(
+        infer_objects=True,  # 是否将对象数据类型转换为最佳数据类型
+        convert_string=True,  # 是否将对象数据类型转换为字符串
+        convert_integer=True,  # 是否将对象数据类型转换为整数
+        convert_boolean=True,  # 是否将对象数据类型转换为整数
+        convert_floating=True  # 是否将对象数据类型转换为浮动类型
+    )
+
+# 尝试为对象列推断更好的 dtype
+DataFrame.infer_objects()
+
+# 复制
+DataFrame.copy(deep=True)  # 是否为浅拷贝，Fasle--浅拷贝
+
+# 判断单个bool值
+DataFrame.bool()
+```
+
+## 3.3. 索引、迭代
+```python
+# 查看前 n 行
+DataFrame.head(n=5)
+# 查看后 n 行
+DataFrame.tail(n=5)
+# 基于标签访问单个值
+DataFrame.at
+# 基于位置的索引访问单个值
+DataFrame.iat
+# 通过标签或布尔数组访问一组行和列
+DataFrame.loc
+# 基于整数位置的索引，用于按位置进行选择
+DataFrame.iloc
+
+# 在指定位置将列插入 DataFrame
+DataFrame.insert(
+        loc,  # 插入索引 (int)
+        column,  # 插入列的标签 (str, number, or hashable object)
+        value,  # 插入列的值 (Scalar, Series, or array-like)
+        allow_duplicates=False  # 是否允许重复
+    )
+
+# 遍历 DataFrame 列，返回一个包含列名和内容的元组作为一个系列
+DataFrame.__iter__()
+DataFrame.iteritems()
+
+# 获取索引
+DataFrame.keys()
+
+# 将 DataFrame 行作为 (index, Series) 对进行迭代
+DataFrame.iterrows()
+
+# 以命名元组的形式迭代 DataFrame
+DataFrame.itertuples(
+        index=True,  # 是否行迭代 (bool)
+        name='Pandas'  # 命名元组的名称 (str or None)
+    )
+
+# 删除列
+DataFrame.pop(item)  # 列标签 (label)
+
+# 获取给定键的对象
+DataFrame.get(
+        key,  # 给定的键
+        default=None  # 未找到则返回的值
+    )
+
+# DataFrame 中的每个元素是否包含在值中
+DataFrame.isin(values)  # (iterable, Series, DataFrame or dict)
+
+# 替换条件为 False 的值
+DataFrame.where(
+        cond,  # 替换条件 (bool Series/DataFrame, array-like, or callable)
+        other=nan,  # 要替换的值 (scalar, Series/DataFrame, or callable)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        axis=None  # 轴方向 ()
+    )
+# 替换条件为 True 的值
+DataFrame.mask(
+        cond,  # 替换条件 (bool Series/DataFrame, array-like, or callable)
+        other=nan,  # 要替换的值 (scalar, Series/DataFrame, or callable)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        axis=None,  # 轴方向 ()
+        level=None, 
+        errors='raise', 
+        try_cast=NoDefault.no_default)
+
+# 使用布尔表达式查询 DataFrame 的列
+DataFrame.query(
+        expr,  # 查询表达式 (str)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        **kwargs  
+    )
+```
+
+## 3.4. 二元运算符函数
+```python
+# 加法
+DataFrame.add(
+        other, 
+        axis='columns',  # 轴方向
+        level=None, 
+        fill_value=None  # 计算前填充空值 (float or None)
+    )  # DataFrame + other
+# 减法
+DataFrame.sub(other, axis='columns', level=None, fill_value=None)
+# 乘法
+DataFrame.mul(other, axis='columns', level=None, fill_value=None)
+# 浮点数除法
+DataFrame.div(other, axis='columns', level=None, fill_value=None)
+DataFrame.truediv(other, axis='columns', level=None, fill_value=None)
+# 整数除法
+DataFrame.floordiv(other, axis='columns', level=None, fill_value=None)
+# 模运算
+DataFrame.mod(other, axis='columns', level=None, fill_value=None)
+# 指数运算
+DataFrame.pow(other, axis='columns', level=None, fill_value=None)
+# 矩阵乘法
+DataFrame.dot(other)
+# 前后交换加法 
+DataFrame.radd(other, axis='columns', level=None, fill_value=None)  # other + DataFrame
+# 前后交换减法 
+DataFrame.rsub(other, axis='columns', level=None, fill_value=None)
+# 前后交换乘法
+DataFrame.rmul(other, axis='columns', level=None, fill_value=None)
+# 前后交换浮点数除法
+DataFrame.rdiv(other, axis='columns', level=None, fill_value=None)
+DataFrame.rtruediv(other, axis='columns', level=None, fill_value=None)
+# 前后交换整数除法
+DataFrame.rfloordiv(other, axis='columns', level=None, fill_value=None)
+# 前后交换取模运算
+DataFrame.rmod(other, axis='columns', level=None, fill_value=None)
+# 前后交换指数运算
+DataFrame.rpow(other, axis='columns', level=None, fill_value=None)
+
+# 判断是否小于DataFrame
+DataFrame.lt(other, axis='columns', level=None)
+# 判断是否大于DataFrame
+DataFrame.gt(other, axis='columns', level=None)
+# 判断是否小于等于DataFrame
+DataFrame.le(other, axis='columns', level=None)
+# 判断是否大于等于DataFrame
+DataFrame.ge(other, axis='columns', level=None)
+# 判断是否不等于DataFrame
+DataFrame.ne(other, axis='columns', level=None)
+# 判断是否等于DataFrame
+DataFrame.eq(other, axis='columns', level=None)
+
+# DataFrame按列组合，索引和列名为两个DataFrame的并集
+DataFrame.combine(
+        other,  # DataFrame
+        func,  # 用于逐列合并两个数据框的函数
+        fill_value=None,  # 计算前填充空值 (float or None)
+        overwrite=True  # 如果为 True，则 self 中不存在于 other 中的列将被 NaN 覆盖
+    )
+# 使用其他相同位置的值更新NaN
+DataFrame.combine_first(other)
+```
+
+## 3.5. Function application, GroupBy & window
+```python
+
 ```
