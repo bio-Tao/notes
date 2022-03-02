@@ -1,5 +1,10 @@
-# input、output
+
+
+# 输入、输出
+
+## csv文件
 ```python
+# 读取csv
 pandas.read_csv(
         filepath_or_buffer,  # 文件路径 (str, path object or file-like object)
         sep=NoDefault.no_default,   # 分隔符 (str, default ",")
@@ -36,6 +41,7 @@ pandas.read_csv(
         encoding=None  # 指定字符集编码类型 (str)
      )
 
+# 输出csv
 DataFrame.to_csv(
         path_or_buf=None,  # 输出文件路径 (str, path object, file-like object, or None)
         sep=',',  # 分隔符 (str, default ",")
@@ -53,7 +59,11 @@ DataFrame.to_csv(
         date_format=None,  # 日期时间对象的格式字符串 (str)
         decimal='.'  #识别为小数分隔符的字符 (str, default ".")
     )
+```
 
+## excel文件
+```python
+# 读取excel
 pandas.read_excel(
         io,  # 文件路径 (str, bytes, ExcelFile, xlrd.Book, path object, or file-like object)
         sheet_name=0,  # 表单名(str, int, list, or None, default 0)
@@ -82,6 +92,7 @@ pandas.read_excel(
         mangle_dupe_cols=True  # 重复列是否被指定为X.1、X.2··· (bool)
     )
 
+# 输出excel
 DataFrame.to_excel(
         excel_writer,  # 文件路径 (path-like, file-like, or ExcelWriter object)
         sheet_name='Sheet1',  # 表单名 (str, default "Sheet1")
@@ -94,5 +105,88 @@ DataFrame.to_excel(
         encoding=None,  # 指定字符集编码类型 (str)
         inf_rep='inf',  # 无穷大的表示 (str, default "inf")
         freeze_panes=None  # 用于指定要冻结的最底部一行和最右边一列 (tuple of int (length 2))
+    )
+```
+
+# 一般功能能
+
+## 数据操作
+```python
+# 将 DataFrame 从宽格式转为长格式
+DataFrame.melt
+pandas.melt(
+        frame,  # data
+        id_vars=None,  # 用作标识符变量的列 (tuple, list, or ndarray)
+        value_vars=None,  # 需要转换的列名 (tuple, list, or ndarray)
+        var_name=None,  # 用于“变量”列的名称 (scalar)
+        value_name='value',  # 用于“值”列的名称 (scalar)
+        ignore_index=True # 是否忽略原始索引 (bool)
+    )
+
+# 返回给定索引、列值的DataFrame
+pandas.pivot(
+        data,  # DataFrame
+        index=None,  # 新DataFrame的索引 (str or object or a list of str)
+        columns=None,  # 新DataFrame的列名 (str or object or a list of str)
+        values=None # 新DataFrame的值使用哪些列 (str, object or a list of the previous)
+    )
+
+# 将值分类为离散间隔
+pandas.cut(
+        x,  # 要分箱的输入数组。必须是一维的 (array-like)
+        bins,  # 分箱数，每一个bin的区间边缘，精确区间 (int, sequence of scalars, or IntervalIndex)
+        right=True,  # bin是否包含区间右部 (bool)
+        labels=None,  # bin的标签 (array or False)
+        retbins=False,  # 是否将分割后的bins返回 (bool)
+        precision=3,  # 存储和显示 bin 标签的精度 (int)
+        include_lowest=False,  # 区间的左边是开还是闭的 (bool)
+        duplicates='raise',  # 是否允许重复区间 (raise：不允许，drop：允许)
+        ordered=True  # 标签是否有序 (bool)
+    )
+
+# 按数量分箱
+pandas.qcut(
+        x,  # 要分箱的输入数组。必须是一维的 (array-like)
+        q,  # 分位数 (int or list-like of float)
+        labels=None,  # bin的标签 (array or False)
+        retbins=False,  # 是否将分割后的bins返回 (bool)
+        precision=3,  # 存储和显示 bin 标签的精度 (int)
+        duplicates='raise')  # 是否允许重复区间 (raise：不允许，drop：允许)
+
+# 将 DataFrame 或命名的 Series 对象连接合并
+pandas.merge(
+        left,  # DataFrame
+        right,  # 要合并的对象 (DataFrame or named Series)
+        how='inner',  # 要执行的合并类型 ("left", "right", "outer", "inner", "cross")
+        on=None,  # 用于连接的列或索引名 (label or list)
+        left_on=None,  # 左侧用于连接的列或索引名 (label or list, or array-like)
+        right_on=None,  # 右侧用于连接的列或索引名 (label or list, or array-like)
+        left_index=False,  # 使用左侧 DataFrame 中的索引作为连接键 (bool)
+        right_index=False,  # 使用右侧 DataFrame 中的索引作为连接键 (bool)
+        sort=False,  # 根据连接键进行排序 (bool)
+        suffixes=('_x', '_y'),  # 添加到左右重叠列名的后缀 (list-like)
+        copy=True,  # 是否复制 (bool)
+        indicator=False,  # 是否输出每行来源信息 (bool)
+        validate=None  # 检查合并是否属于指定类型 ("1:1","1:m","m:1","m:m")
+    )
+
+# 沿特定轴连接 pandas 对象
+pandas.concat(
+        objs, # data (a sequence or mapping of Series or DataFrame objects)
+        axis=0,  # 要连接的轴
+        join='outer',  # 处理方式 ("outer","inner")
+        ignore_index=False,  # 是否不要沿连接轴使用索引值 (bool)
+        keys=None  # 使用传递的键作为最外层构建层次索引 (sequence)
+    )
+
+# 将分类变量转变为虚拟/指标变量(独热编码)
+pandas.get_dummies(
+        data,  # data (array-like, Series, or DataFrame)
+        prefix=None,  # 附加 DataFrame 列名的字符串 (str, list of str, or dict of str)
+        prefix_sep='_',  # 如果附加前缀，则使用分隔符/定界符 (str)
+        dummy_na=False,  # 如果忽略 False NaN，则添加一列以指示 NaN (bool)
+        columns=None,  # 要编码的 DataFrame 中的列名 (list-like)
+        drop_first=False,  # 是否通过删除第一级从 k 个分类级别中取出 k-1 个虚拟变量 (bool)
+        dtype=None  # 新列的数据类型 (dtype)
     )
 ```
