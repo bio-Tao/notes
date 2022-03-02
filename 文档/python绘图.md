@@ -1,69 +1,69 @@
 
-<!-- TOC orderedlist:true -->
+<!-- TOC -->
 
-- [2. 准备工作](#2-准备工作)
-- [3. 关联（Correlation）关系图](#3-关联correlation关系图)
-  - [3.1. 散点图（Scatter plot）](#31-散点图scatter-plot)
-  - [3.2.边界气泡图（Bubble plot with Encircling）](#32边界气泡图bubble-plot-with-encircling)
-  - [3.3.散点图添加趋势线（Scatter plot with linear regression line of best fit）](#33散点图添加趋势线scatter-plot-with-linear-regression-line-of-best-fit)
-  - [3.4.分面散点图添加趋势线（Each regression line in its own column）](#34分面散点图添加趋势线each-regression-line-in-its-own-column)
-  - [3.5.抖动图（Jittering with stripplot）](#35抖动图jittering-with-stripplot)
-  - [3.6.计数图（Counts Plot）](#36计数图counts-plot)
-  - [3.7.边缘直方图（Marginal Histogram）](#37边缘直方图marginal-histogram)
-  - [3.8.边缘箱图（Marginal Boxplot）](#38边缘箱图marginal-boxplot)
-  - [3.9.相关性热图（Correlogram）](#39相关性热图correlogram)
-  - [3.10.矩阵图 （Pairwise Plot）](#310矩阵图-pairwise-plot)
-- [4. 偏差 （Deviation）关系图](#4-偏差-deviation关系图)
-  - [4.1.发散型柱形图 （Diverging Bars）](#41发散型柱形图-diverging-bars)
-  - [4.2.发散型文本图（Diverging Texts）-水平方向](#42发散型文本图diverging-texts-水平方向)
-  - [4.3.发散型文本图（Diverging Texts）-垂直方向](#43发散型文本图diverging-texts-垂直方向)
-  - [4.4.发散型点图（Diverging Dot Plot）](#44发散型点图diverging-dot-plot)
-  - [4.5.带Marker的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）](#45带marker的发散型棒棒糖图-diverging-lollipop-chart-with-markers)
-  - [4.6.面积图（Area Chart）](#46面积图area-chart)
-- [5. 排序 （Ranking）关系图](#5-排序-ranking关系图)
-  - [5.1.排序柱形图（Ordered Bar Chart）](#51排序柱形图ordered-bar-chart)
-  - [5.2.棒棒糖图(Lollipop Chart)](#52棒棒糖图lollipop-chart)
-  - [5.3.点图 （Dot Plot）](#53点图-dot-plot)
-  - [5.4.坡图（Slope Chart）](#54坡图slope-chart)
-  - [5.5.哑铃图（Dumbbell Plot）](#55哑铃图dumbbell-plot)
-- [6. 分布（Distribution）关系图](#6-分布distribution关系图)
-  - [6.1.连续变量堆积直方图（Stacked Histogram for Continuous Variable）](#61连续变量堆积直方图stacked-histogram-for-continuous-variable)
-  - [6.2.类别变量堆积直方图（Stacked Histogram for Categorical Variable）](#62类别变量堆积直方图stacked-histogram-for-categorical-variable)
-  - [6.3.密度图(Density Plot)](#63密度图density-plot)
-  - [6.4.带直方图的密度图(Density Curves with Histogram)](#64带直方图的密度图density-curves-with-histogram)
-  - [6.5.山峰叠峦图(Joy Plot)](#65山峰叠峦图joy-plot)
-  - [6.6.分布点图(Distributed Dot Plot)](#66分布点图distributed-dot-plot)
-  - [6.7.箱图（boxplot）](#67箱图boxplot)
-  - [6.8.箱图结合点图（Dot + Box Plot）](#68箱图结合点图dot--box-plot)
-  - [6.9.小提琴图（Violin Plot）](#69小提琴图violin-plot)
-  - [6.10.金字塔图(Population Pyramid)](#610金字塔图population-pyramid)
-  - [6.11.分类图（Categorical Plots）](#611分类图categorical-plots)
-- [7. 组成（Composition）关系图](#7-组成composition关系图)
-  - [7.1.华夫饼图（Waffle Chart）](#71华夫饼图waffle-chart)
-  - [7.2.饼图（Pie Chart）](#72饼图pie-chart)
-  - [7.3.树状图（Treemap）](#73树状图treemap)
-  - [7.4.柱状图（Bar Chart）](#74柱状图bar-chart)
-- [8. 变化（Change）关系图](#8-变化change关系图)
-  - [8.1.时间序列图（Time Series Plot）](#81时间序列图time-series-plot)
-  - [8.2.波峰和波谷添加注释的时间序列图（Time Series with Peaks and Troughs Annotated）](#82波峰和波谷添加注释的时间序列图time-series-with-peaks-and-troughs-annotated)
-  - [8.3.自相关和部分自相关图（Autocorrelation (ACF) and Partial Autocorrelation (PACF) Plot）](#83自相关和部分自相关图autocorrelation-acf-and-partial-autocorrelation-pacf-plot)
-  - [8.4.交叉相关图（Cross Correlation plot）](#84交叉相关图cross-correlation-plot)
-  - [8.5.时间序列分解图（Time Series Decomposition Plot）](#85时间序列分解图time-series-decomposition-plot)
-  - [8.6.多重时间序列图（Multiple Time Series）](#86多重时间序列图multiple-time-series)
-  - [8.7.双坐标系时间序列图（Plotting with different scales using secondary Y axis）](#87双坐标系时间序列图plotting-with-different-scales-using-secondary-y-axis)
-  - [8.8.带误差阴影的时间序列图（Time Series with Error Bands）](#88带误差阴影的时间序列图time-series-with-error-bands)
-  - [8.9.堆积面积图（Stacked Area Chart）](#89堆积面积图stacked-area-chart)
-  - [8.10.非堆积面积图（Area Chart UnStacked）](#810非堆积面积图area-chart-unstacked)
-  - [8.11.季节图（Seasonal Plot）](#811季节图seasonal-plot)
-- [9. 分组（ Groups）关系图](#9-分组-groups关系图)
-  - [9.1.聚类树形图（Dendrogram）](#91聚类树形图dendrogram)
-  - [9.2.聚类图（Cluster Plot）](#92聚类图cluster-plot)
-  - [9.3.安德鲁斯曲线（Andrews Curve）](#93安德鲁斯曲线andrews-curve)
-  - [9.4.平行坐标图（Parallel Coordinates）](#94平行坐标图parallel-coordinates)
+- [1. 准备工作](#1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)
+- [2. 关联（Correlation）关系图](#2-%E5%85%B3%E8%81%94correlation%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [2.1. 散点图（Scatter plot）](#21-%E6%95%A3%E7%82%B9%E5%9B%BEscatter-plot)
+    - [2.2. 边界气泡图（Bubble plot with Encircling）](#22-%E8%BE%B9%E7%95%8C%E6%B0%94%E6%B3%A1%E5%9B%BEbubble-plot-with-encircling)
+    - [2.3. 散点图添加趋势线（Scatter plot with linear regression line of best fit）](#23-%E6%95%A3%E7%82%B9%E5%9B%BE%E6%B7%BB%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BFscatter-plot-with-linear-regression-line-of-best-fit)
+    - [2.4. 分面散点图添加趋势线（Each regression line in its own column）](#24-%E5%88%86%E9%9D%A2%E6%95%A3%E7%82%B9%E5%9B%BE%E6%B7%BB%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BFeach-regression-line-in-its-own-column)
+    - [2.5. 抖动图（Jittering with stripplot）](#25-%E6%8A%96%E5%8A%A8%E5%9B%BEjittering-with-stripplot)
+    - [2.6. 计数图（Counts Plot）](#26-%E8%AE%A1%E6%95%B0%E5%9B%BEcounts-plot)
+    - [2.7. 边缘直方图（Marginal Histogram）](#27-%E8%BE%B9%E7%BC%98%E7%9B%B4%E6%96%B9%E5%9B%BEmarginal-histogram)
+    - [2.8. 边缘箱图（Marginal Boxplot）](#28-%E8%BE%B9%E7%BC%98%E7%AE%B1%E5%9B%BEmarginal-boxplot)
+    - [2.9. 相关性热图（Correlogram）](#29-%E7%9B%B8%E5%85%B3%E6%80%A7%E7%83%AD%E5%9B%BEcorrelogram)
+    - [2.10. 矩阵图 （Pairwise Plot）](#210-%E7%9F%A9%E9%98%B5%E5%9B%BE-pairwise-plot)
+- [3. 偏差 （Deviation）关系图](#3-%E5%81%8F%E5%B7%AE-deviation%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [3.1. 发散型柱形图 （Diverging Bars）](#31-%E5%8F%91%E6%95%A3%E5%9E%8B%E6%9F%B1%E5%BD%A2%E5%9B%BE-diverging-bars)
+    - [3.2. 发散型文本图（Diverging Texts）-水平方向](#32-%E5%8F%91%E6%95%A3%E5%9E%8B%E6%96%87%E6%9C%AC%E5%9B%BEdiverging-texts-%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91)
+    - [3.3. 发散型文本图（Diverging Texts）-垂直方向](#33-%E5%8F%91%E6%95%A3%E5%9E%8B%E6%96%87%E6%9C%AC%E5%9B%BEdiverging-texts-%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91)
+    - [3.4. 发散型点图（Diverging Dot Plot）](#34-%E5%8F%91%E6%95%A3%E5%9E%8B%E7%82%B9%E5%9B%BEdiverging-dot-plot)
+    - [3.5. 带Marker的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）](#35-%E5%B8%A6marker%E7%9A%84%E5%8F%91%E6%95%A3%E5%9E%8B%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BE-diverging-lollipop-chart-with-markers)
+    - [3.6. 面积图（Area Chart）](#36-%E9%9D%A2%E7%A7%AF%E5%9B%BEarea-chart)
+- [4. 排序 （Ranking）关系图](#4-%E6%8E%92%E5%BA%8F-ranking%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [4.1. 排序柱形图（Ordered Bar Chart）](#41-%E6%8E%92%E5%BA%8F%E6%9F%B1%E5%BD%A2%E5%9B%BEordered-bar-chart)
+    - [4.2. 棒棒糖图Lollipop Chart](#42-%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BElollipop-chart)
+    - [4.3. 点图 （Dot Plot）](#43-%E7%82%B9%E5%9B%BE-dot-plot)
+    - [4.4. 坡图（Slope Chart）](#44-%E5%9D%A1%E5%9B%BEslope-chart)
+    - [4.5. 哑铃图（Dumbbell Plot）](#45-%E5%93%91%E9%93%83%E5%9B%BEdumbbell-plot)
+- [5. 分布（Distribution）关系图](#5-%E5%88%86%E5%B8%83distribution%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [5.1. 连续变量堆积直方图（Stacked Histogram for Continuous Variable）](#51-%E8%BF%9E%E7%BB%AD%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BEstacked-histogram-for-continuous-variable)
+    - [5.2. 类别变量堆积直方图（Stacked Histogram for Categorical Variable）](#52-%E7%B1%BB%E5%88%AB%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BEstacked-histogram-for-categorical-variable)
+    - [5.3. 密度图Density Plot](#53-%E5%AF%86%E5%BA%A6%E5%9B%BEdensity-plot)
+    - [5.4. 带直方图的密度图Density Curves with Histogram](#54-%E5%B8%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E5%AF%86%E5%BA%A6%E5%9B%BEdensity-curves-with-histogram)
+    - [5.5. 山峰叠峦图Joy Plot](#55-%E5%B1%B1%E5%B3%B0%E5%8F%A0%E5%B3%A6%E5%9B%BEjoy-plot)
+    - [5.6. 分布点图Distributed Dot Plot](#56-%E5%88%86%E5%B8%83%E7%82%B9%E5%9B%BEdistributed-dot-plot)
+    - [5.7. 箱图（boxplot）](#57-%E7%AE%B1%E5%9B%BEboxplot)
+    - [5.8. 箱图结合点图（Dot + Box Plot）](#58-%E7%AE%B1%E5%9B%BE%E7%BB%93%E5%90%88%E7%82%B9%E5%9B%BEdot--box-plot)
+    - [5.9. 小提琴图（Violin Plot）](#59-%E5%B0%8F%E6%8F%90%E7%90%B4%E5%9B%BEviolin-plot)
+    - [5.10. 金字塔图Population Pyramid](#510-%E9%87%91%E5%AD%97%E5%A1%94%E5%9B%BEpopulation-pyramid)
+    - [5.11. 分类图（Categorical Plots）](#511-%E5%88%86%E7%B1%BB%E5%9B%BEcategorical-plots)
+- [6. 组成（Composition）关系图](#6-%E7%BB%84%E6%88%90composition%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [6.1. 华夫饼图（Waffle Chart）](#61-%E5%8D%8E%E5%A4%AB%E9%A5%BC%E5%9B%BEwaffle-chart)
+    - [6.2. 饼图（Pie Chart）](#62-%E9%A5%BC%E5%9B%BEpie-chart)
+    - [6.3. 树状图（Treemap）](#63-%E6%A0%91%E7%8A%B6%E5%9B%BEtreemap)
+    - [6.4. 柱状图（Bar Chart）](#64-%E6%9F%B1%E7%8A%B6%E5%9B%BEbar-chart)
+- [7. 变化（Change）关系图](#7-%E5%8F%98%E5%8C%96change%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [7.1. 时间序列图（Time Series Plot）](#71-%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BEtime-series-plot)
+    - [7.2. 波峰和波谷添加注释的时间序列图（Time Series with Peaks and Troughs Annotated）](#72-%E6%B3%A2%E5%B3%B0%E5%92%8C%E6%B3%A2%E8%B0%B7%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BEtime-series-with-peaks-and-troughs-annotated)
+    - [7.3. 自相关和部分自相关图（Autocorrelation ACF and Partial Autocorrelation PACF Plot）](#73-%E8%87%AA%E7%9B%B8%E5%85%B3%E5%92%8C%E9%83%A8%E5%88%86%E8%87%AA%E7%9B%B8%E5%85%B3%E5%9B%BEautocorrelation-acf-and-partial-autocorrelation-pacf-plot)
+    - [7.4. 交叉相关图（Cross Correlation plot）](#74-%E4%BA%A4%E5%8F%89%E7%9B%B8%E5%85%B3%E5%9B%BEcross-correlation-plot)
+    - [7.5. 时间序列分解图（Time Series Decomposition Plot）](#75-%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E8%A7%A3%E5%9B%BEtime-series-decomposition-plot)
+    - [7.6. 多重时间序列图（Multiple Time Series）](#76-%E5%A4%9A%E9%87%8D%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BEmultiple-time-series)
+    - [7.7. 双坐标系时间序列图（Plotting with different scales using secondary Y axis）](#77-%E5%8F%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BEplotting-with-different-scales-using-secondary-y-axis)
+    - [7.8. 带误差阴影的时间序列图（Time Series with Error Bands）](#78-%E5%B8%A6%E8%AF%AF%E5%B7%AE%E9%98%B4%E5%BD%B1%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BEtime-series-with-error-bands)
+    - [7.9. 堆积面积图（Stacked Area Chart）](#79-%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BEstacked-area-chart)
+    - [7.10. 非堆积面积图（Area Chart UnStacked）](#710-%E9%9D%9E%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BEarea-chart-unstacked)
+    - [7.11. 季节图（Seasonal Plot）](#711-%E5%AD%A3%E8%8A%82%E5%9B%BEseasonal-plot)
+- [8. 分组（ Groups）关系图](#8-%E5%88%86%E7%BB%84-groups%E5%85%B3%E7%B3%BB%E5%9B%BE)
+    - [8.1. 聚类树形图（Dendrogram）](#81-%E8%81%9A%E7%B1%BB%E6%A0%91%E5%BD%A2%E5%9B%BEdendrogram)
+    - [8.2. 聚类图（Cluster Plot）](#82-%E8%81%9A%E7%B1%BB%E5%9B%BEcluster-plot)
+    - [8.3. 安德鲁斯曲线（Andrews Curve）](#83-%E5%AE%89%E5%BE%B7%E9%B2%81%E6%96%AF%E6%9B%B2%E7%BA%BFandrews-curve)
+    - [8.4. 平行坐标图（Parallel Coordinates）](#84-%E5%B9%B3%E8%A1%8C%E5%9D%90%E6%A0%87%E5%9B%BEparallel-coordinates)
 
 <!-- /TOC -->
 
-# 2. 准备工作
+# 1. 准备工作
 ```python
 import numpy as np
 import pandas as pd
@@ -79,9 +79,9 @@ print(mpl.__version__)
 print(sns.__version__)
 ```
 
-# 3. 关联（Correlation）关系图
+# 2. 关联（Correlation）关系图
 
-## 3.1. 散点图（Scatter plot）
+## 2.1. 散点图（Scatter plot）
 该图展示两个变量间的关系，matplotlib中使用plt.scatter()函数。当数据包含多组时，可以使用不同颜色或者形状区分。
 
 ```python
@@ -124,7 +124,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%95%A3%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.2.边界气泡图（Bubble plot with Encircling）
+## 2.2. 边界气泡图（Bubble plot with Encircling）
 该图也是一类散点图，只不使用边界圈住一部分点，以强调其重要性。
 
 ```python
@@ -209,7 +209,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%95%8C%E6%B0%94%E6%B3%A1%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.3.散点图添加趋势线（Scatter plot with linear regression line of best fit）
+## 2.3. 散点图添加趋势线（Scatter plot with linear regression line of best fit）
 添加趋势线反映两个变量是正相关、负相关或者无相关关系。
 
 ```python
@@ -240,7 +240,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%95%A3%E7%82%B9%E5%9B%BE%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BF.png" style="zoom: 67%;" />
 </div>
 
-## 3.4.分面散点图添加趋势线（Each regression line in its own column）
+## 2.4. 分面散点图添加趋势线（Each regression line in its own column）
 添加趋势线反映两个变量是正相关、负相关或者无相关关系。
 
 ```python
@@ -270,7 +270,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E9%9D%A2%E6%95%A3%E7%82%B9%E5%9B%BE%E5%8A%A0%E8%B6%8B%E5%8A%BF%E7%BA%BF.png" style="zoom: 67%;" />
 </div>
 
-## 3.5.抖动图（Jittering with stripplot）
+## 2.5. 抖动图（Jittering with stripplot）
 多个点具有完全相同的X和Y值, 为避免多个点相互绘制并隐藏，可稍微抖动点，以便直观地看到它们。
 
 ```python
@@ -295,7 +295,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%8A%96%E5%8A%A8%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.6.计数图（Counts Plot）
+## 2.6. 计数图（Counts Plot）
 区别于抖动图，多个点相互绘制并隐藏时，可使用点的大小区分重叠的程度，点的大小越大，周围的点的集中度就越大，重叠的越多。
 
 ```python
@@ -320,7 +320,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%AE%A1%E6%95%B0%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.7.边缘直方图（Marginal Histogram）
+## 2.7. 边缘直方图（Marginal Histogram）
 用于展示X和Y之间的关系、及X和Y的单变量分布情况，常用于数据探索分析。
 
 ```python
@@ -394,7 +394,7 @@ g.fig.set_size_inches(10, 8)  #设置图尺寸
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%BC%98%E7%9B%B4%E6%96%B9%E5%9B%BE%EF%BC%88serborn%EF%BC%89.png" style="zoom: 67%;" />
 </div>
 
-## 3.8.边缘箱图（Marginal Boxplot）
+## 2.8. 边缘箱图（Marginal Boxplot）
 类似于边缘直方图，不过箱线图有助于精确定位变量的分位数。
 
 ```python
@@ -450,7 +450,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BE%B9%E7%BC%98%E7%AE%B1%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.9.相关性热图（Correlogram）
+## 2.9. 相关性热图（Correlogram）
 直观地度量给定Data Frame (or 2D array)中所有可能的数值变量对之间的相关性差异。
 
 ```python
@@ -475,7 +475,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%9B%B8%E5%85%B3%E6%80%A7%E7%83%AD%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 3.10.矩阵图 （Pairwise Plot）
+## 2.10. 矩阵图 （Pairwise Plot）
 数据探索阶段必备工具，用来探索各个数值型变量之间关系。
 
 ```python
@@ -509,9 +509,9 @@ plt.show()
 </div>
 
 
-# 4. 偏差 （Deviation）关系图
+# 3. 偏差 （Deviation）关系图
 
-## 4.1.发散型柱形图 （Diverging Bars）
+## 3.1. 发散型柱形图 （Diverging Bars）
 展示单个指标的变化的顺序和数量。
 
 ```python
@@ -543,7 +543,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 4.2.发散型文本图（Diverging Texts）-水平方向
+## 3.2. 发散型文本图（Diverging Texts）-水平方向
 和上一个图的区别是该图在柱子上添加了数值文本。
 
 ```python
@@ -576,7 +576,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE%E5%8A%A0%E6%96%87%E6%9C%AC%EF%BC%88%E6%B0%B4%E5%B9%B3%EF%BC%89.png" style="zoom: 67%;" />
 </div>
 
-## 4.3.发散型文本图（Diverging Texts）-垂直方向
+## 3.3. 发散型文本图（Diverging Texts）-垂直方向
 ```python
 # Prepare Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mtcars.csv")
@@ -615,7 +615,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%9F%B1%E5%9B%BE%E5%8A%A0%E6%96%87%E6%9C%AC%EF%BC%88%E5%9E%82%E7%9B%B4%EF%BC%89.png" style="zoom: 67%;" />
 </div>
 
-## 4.4.发散型点图（Diverging Dot Plot）
+## 3.4. 发散型点图（Diverging Dot Plot）
 与发散性文本图的区别是缺失柱子，减少了组之间的对比差异。
 
 ```python
@@ -657,7 +657,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 4.5.带Marker的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）
+## 3.5. 带Marker的发散型棒棒糖图 （Diverging Lollipop Chart with Markers）
 使用不同形状，强调重点关注的数据区域。
 
 ```python
@@ -729,7 +729,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%91%E6%95%A3%E5%BD%A2%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 4.6.面积图（Area Chart）
+## 3.6. 面积图（Area Chart）
 将曲线与坐标轴之间区域上色得面积图，面积图能够很好的展示整体与局部数据的关系，直观展示整体走势、展示不同元素的涨跌状况。
 
 ```python
@@ -789,9 +789,9 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-# 5. 排序 （Ranking）关系图
+# 4. 排序 （Ranking）关系图
 
-## 5.1.排序柱形图（Ordered Bar Chart）
+## 4.1. 排序柱形图（Ordered Bar Chart）
 ```python
 # Prepare Data
 df_raw = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
@@ -847,7 +847,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%8E%92%E5%BA%8F%E6%9F%B1%E5%BD%A2%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 5.2.棒棒糖图(Lollipop Chart)
+## 4.2. 棒棒糖图(Lollipop Chart)
 将上面的柱子换做棒棒即可，效果也一样~~
 
 ```python
@@ -898,7 +898,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%A3%92%E6%A3%92%E7%B3%96%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 5.3.点图 （Dot Plot）
+## 4.3. 点图 （Dot Plot）
 将上面的棒棒去掉并水平放置即可，效果也一样~~ ，在水平方向展示各个指标的排名情况。
 
 ```python
@@ -940,7 +940,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 5.4.坡图（Slope Chart）
+## 4.4. 坡图（Slope Chart）
 很好的比较多项目两个不同时期的情况。
 
 ```python
@@ -1059,7 +1059,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%9D%A1%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 5.5.哑铃图（Dumbbell Plot）
+## 4.5. 哑铃图（Dumbbell Plot）
 很好的比较多个项目两个不同时期的情况、更重要的是还会展示不同项目的排序信息。
 
 ```python
@@ -1135,9 +1135,9 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%93%91%E9%93%83%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-# 6. 分布（Distribution）关系图
+# 5. 分布（Distribution）关系图
 
-## 6.1.连续变量堆积直方图（Stacked Histogram for Continuous Variable）
+## 5.1. 连续变量堆积直方图（Stacked Histogram for Continuous Variable）
 该图展示给定连续变量的频率分布。
 
 ```python
@@ -1177,7 +1177,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%BF%9E%E7%BB%AD%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.2.类别变量堆积直方图（Stacked Histogram for Categorical Variable）
+## 5.2. 类别变量堆积直方图（Stacked Histogram for Categorical Variable）
 该图展示给定类别变量的频率分布。
 
 ```python
@@ -1221,7 +1221,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%B1%BB%E5%88%AB%E5%8F%98%E9%87%8F%E5%A0%86%E7%A7%AF%E7%9B%B4%E6%96%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.3.密度图(Density Plot)
+## 5.3. 密度图(Density Plot)
 该图展示连续变量的分布情况。
 
 ```python
@@ -1261,7 +1261,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%AF%86%E5%BA%A6%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.4.带直方图的密度图(Density Curves with Histogram)
+## 5.4. 带直方图的密度图(Density Curves with Histogram)
 ```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
@@ -1295,7 +1295,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B8%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%9A%84%E5%AF%86%E5%BA%A6%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.5.山峰叠峦图(Joy Plot)
+## 5.5. 山峰叠峦图(Joy Plot)
 该图展示大量分组之间的关系，比heatmap形象。
 
 ```python
@@ -1322,7 +1322,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B1%B1%E5%B3%B0%E5%8F%A0%E5%B3%A6%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.6.分布点图(Distributed Dot Plot)
+## 5.6. 分布点图(Distributed Dot Plot)
 分布点图显示了按组划分的点的单变量分布。点色越浅，该区域中数据点的集中度越高。通过对中位数进行不同的着色，各组的实际位置会立即变得明显。
 
 ```python
@@ -1400,7 +1400,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E5%B8%83%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.7.箱图（boxplot）
+## 5.7. 箱图（boxplot）
 很好的展示数据的分布情况~
 
 ```python
@@ -1447,7 +1447,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%AE%B1%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.8.箱图结合点图（Dot + Box Plot）
+## 5.8. 箱图结合点图（Dot + Box Plot）
 该图展示箱图及箱图绘制所用的详细点。
 
 ```python
@@ -1483,7 +1483,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E7%AE%B1%E5%9B%BE%E5%8A%A0%E7%82%B9%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.9.小提琴图（Violin Plot）
+## 5.9. 小提琴图（Violin Plot）
 比箱图更好看，但不常用，小提琴的形状或面积由该位置数据次数决定。
 
 ```python
@@ -1507,7 +1507,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%B0%8F%E6%8F%90%E7%90%B4%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.10.金字塔图(Population Pyramid)
+## 5.10. 金字塔图(Population Pyramid)
 可以理解为一种排过序的分组水平柱状图barplot，可很好展示不同分组之间的差异，可可视化逐级过滤或者漏斗的每个阶段。
 
 ```python
@@ -1544,7 +1544,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%87%91%E5%AD%97%E5%A1%94%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 6.11.分类图（Categorical Plots）
+## 5.11. 分类图（Categorical Plots）
 展示彼此相关多个（>=2个）分类变量的计数分布，其实就是seaborn的分面图。
 
 ```python
@@ -1586,9 +1586,9 @@ sns.catplot(x="age",
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%88%86%E7%B1%BB%E5%9B%BE-1.png" style="zoom: 67%;" />
 </div>
 
-# 7. 组成（Composition）关系图
+# 6. 组成（Composition）关系图
 
-## 7.1.华夫饼图（Waffle Chart）
+## 6.1. 华夫饼图（Waffle Chart）
 展示较大数据集中的各个组的组成。
 
 ```python
@@ -1737,7 +1737,7 @@ fig = plt.figure(
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8D%8E%E5%A4%AB%E9%A5%BC%E5%9B%BE-1.png" style="zoom: 67%;" />
 </div>
 
-## 7.2.饼图（Pie Chart）
+## 6.2. 饼图（Pie Chart）
 ```
 # Import
 df_raw = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/mpg_ggplot2.csv")
@@ -1798,7 +1798,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%A5%BC%E5%9B%BE-1.png" style="zoom: 67%;" />
 </div>
 
-## 7.3.树状图（Treemap）
+## 6.3. 树状图（Treemap）
 类似饼图的效果，面积大小反应变量大小。
 
 ```python
@@ -1827,7 +1827,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%A0%91%E7%8A%B6%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 7.4.柱状图（Bar Chart）
+## 6.4. 柱状图（Bar Chart）
 柱子高度表示变量大小。
 
 ```python
@@ -1870,9 +1870,9 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%9F%B1%E7%8A%B6%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-# 8. 变化（Change）关系图
+# 7. 变化（Change）关系图
 
-## 8.1.时间序列图（Time Series Plot）
+## 7.1. 时间序列图（Time Series Plot）
 该图展示给定指标随时间的变化趋势。
 
 ```python
@@ -1908,7 +1908,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.2.波峰和波谷添加注释的时间序列图（Time Series with Peaks and Troughs Annotated）
+## 7.2. 波峰和波谷添加注释的时间序列图（Time Series with Peaks and Troughs Annotated）
 ```python
 # Import Data
 df = pd.read_csv('D:/01_system_dir/Documents/笔记/Python绘图/datasets/AirPassengers.csv')
@@ -1977,7 +1977,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%B3%A8%E9%87%8A%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.3.自相关和部分自相关图（Autocorrelation (ACF) and Partial Autocorrelation (PACF) Plot）
+## 7.3. 自相关和部分自相关图（Autocorrelation (ACF) and Partial Autocorrelation (PACF) Plot）
 自相关，展示时间序列与其自身滞后的相关性。
 部分自相关，展示任何给定滞后相对于当前序列的自相关。
 
@@ -2012,7 +2012,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%87%AA%E7%9B%B8%E5%85%B3%E5%92%8C%E9%83%A8%E5%88%86%E8%87%AA%E7%9B%B8%E5%85%B3%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.4.交叉相关图（Cross Correlation plot）
+## 7.4. 交叉相关图（Cross Correlation plot）
 展示两个时间序列相互之间的滞后。
 
 ```python
@@ -2050,7 +2050,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E4%BA%A4%E5%8F%89%E7%9B%B8%E5%85%B3%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.5.时间序列分解图（Time Series Decomposition Plot）
+## 7.5. 时间序列分解图（Time Series Decomposition Plot）
 该图将时间序列分解为趋势、季节和残差分量（trend, seasonal and residual components.）。
 
 ```python
@@ -2075,7 +2075,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E8%A7%A3%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.6.多重时间序列图（Multiple Time Series）
+## 7.6. 多重时间序列图（Multiple Time Series）
 ```python
 # Import Data
 df = pd.read_csv('D:/01_system_dir/Documents/笔记/Python绘图/datasets/mortality.csv')
@@ -2142,7 +2142,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%A4%9A%E9%87%8D%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.7.双坐标系时间序列图（Plotting with different scales using secondary Y axis）
+## 7.7. 双坐标系时间序列图（Plotting with different scales using secondary Y axis）
 ```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/economics.csv")
@@ -2182,7 +2182,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%8F%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.8.带误差阴影的时间序列图（Time Series with Error Bands）
+## 7.8. 带误差阴影的时间序列图（Time Series with Error Bands）
 ```python
 from dateutil.parser import parse
 from scipy.stats import sem
@@ -2234,7 +2234,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%AF%AF%E5%B7%AE%E9%98%B4%E5%BD%B1%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.9.堆积面积图（Stacked Area Chart）
+## 7.9. 堆积面积图（Stacked Area Chart）
 ```python
 # Import Data
 df = pd.read_csv('D:/01_system_dir/Documents/笔记/Python绘图/datasets/nightvisitors.csv')
@@ -2284,7 +2284,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.10.非堆积面积图（Area Chart UnStacked）
+## 7.10. 非堆积面积图（Area Chart UnStacked）
 ```python
 # Import Data
 df = pd.read_csv("D:/01_system_dir/Documents/笔记/Python绘图/datasets/economics.csv")
@@ -2343,7 +2343,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E9%9D%9E%E5%A0%86%E7%A7%AF%E9%9D%A2%E7%A7%AF%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 8.11.季节图（Seasonal Plot）
+## 7.11. 季节图（Seasonal Plot）
 该图比较某个指标在不同年份同一天/年/月/周等的时间序列的表现。
 
 ```python
@@ -2400,9 +2400,9 @@ plt.show()
 </div>
 
 
-# 9. 分组（ Groups）关系图
+# 8. 分组（ Groups）关系图
 
-## 9.1.聚类树形图（Dendrogram）
+## 8.1. 聚类树形图（Dendrogram）
 展示通过聚类形成的组内及组间相似性水平。
 
 ```python
@@ -2427,7 +2427,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%81%9A%E7%B1%BB%E6%A0%91%E5%BD%A2%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 9.2.聚类图（Cluster Plot）
+## 8.2. 聚类图（Cluster Plot）
 通过聚类计算距离，将同一类圈起来。
 
 ```python
@@ -2496,7 +2496,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E8%81%9A%E7%B1%BB%E5%9B%BE.png" style="zoom: 67%;" />
 </div>
 
-## 9.3.安德鲁斯曲线（Andrews Curve）
+## 8.3. 安德鲁斯曲线（Andrews Curve）
 展示是否存在基于给定分组的特征的固有分组。例如下图，如果数据集中的列不能帮助区分组（cyl），则行将不会被很好地分隔开。
 
 ```python
@@ -2527,7 +2527,7 @@ plt.show()
     <img src="https://github.com/bio-Tao/notes/raw/main/%E5%9B%BE%E7%89%87/python%E7%BB%98%E5%9B%BE/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%96%AF%E6%9B%B2%E7%BA%BF.png" style="zoom: 67%;" />
 </div>
 
-## 9.4.平行坐标图（Parallel Coordinates）
+## 8.4. 平行坐标图（Parallel Coordinates）
 展示某个特征是否有助于分组。如果一个特征隔离，分组受到影响，则该特征对该分组非常必要。
 
 ```python

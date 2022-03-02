@@ -1,8 +1,9 @@
 
 
-# 输入、输出
 
-## csv文件
+# 1. 输入、输出
+
+## 1.1. csv文件
 ```python
 # 读取csv
 pandas.read_csv(
@@ -61,7 +62,7 @@ DataFrame.to_csv(
     )
 ```
 
-## excel文件
+## 1.2. excel文件
 ```python
 # 读取excel
 pandas.read_excel(
@@ -108,9 +109,9 @@ DataFrame.to_excel(
     )
 ```
 
-# 一般功能能
+# 2. 一般功能能
 
-## 数据操作
+## 2.1. 数据操作
 ```python
 # 将 DataFrame 从宽格式转为长格式
 DataFrame.melt
@@ -188,5 +189,46 @@ pandas.get_dummies(
         columns=None,  # 要编码的 DataFrame 中的列名 (list-like)
         drop_first=False,  # 是否通过删除第一级从 k 个分类级别中取出 k-1 个虚拟变量 (bool)
         dtype=None  # 新列的数据类型 (dtype)
+    )
+
+# 将对象编码为枚举类型或分类变量，映射为一组数字
+pandas.factorize(
+        values,  # data (sequence)
+        sort=False,  # 表示是否对unique进行排序 (bool)
+        na_sentinel=- 1, 
+        size_hint=None
+    )
+
+# 返回唯一值
+pandas.unique(values)  # 1d array-like
+
+# 将 DataFrame 从宽格式转为长格式
+pandas.wide_to_long(
+        df,  # DataFrame
+        stubnames,  # 提取以指定字符串开头的列 (str or list-like)
+        i,  # 用作索引的列 (str or list-like)
+        j,  # 提取开头后剩余的部分会成一列，在此指定列名 (str)
+        sep='',  # 分隔符 (str)
+        suffix='\\d+'  # 捕获正则表达式匹配的后缀 (str)
+    )
+```
+
+## 2.2. 缺失值
+```python
+# 检查是否为空值
+pandas.isna(obj)
+pandas.isnull(obj)
+
+# 检查是否为非空值
+pandas.notna(obj)
+pandas.notnull(obj)
+```
+
+## 2.3. 转换为数字
+```python
+# 将参数转换为数值类型
+pandas.to_numeric(
+        arg,  # data (scalar, list, tuple, 1-d array, or Series)
+        errors='raise'  # 忽然无效解析，无效解析引发异常，无效解析转化为空值 ("ignore", "raise", "coerce")
     )
 ```
