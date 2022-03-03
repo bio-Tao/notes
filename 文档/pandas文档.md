@@ -12,7 +12,9 @@
     - [3.2. 转换](#32-%E8%BD%AC%E6%8D%A2)
     - [3.3. 索引、迭代](#33-%E7%B4%A2%E5%BC%95%E8%BF%AD%E4%BB%A3)
     - [3.4. 二元运算符函数](#34-%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0)
-    - [3.5. Function application, GroupBy & window](#35-function-application-groupby--window)
+    - [3.5. 计算/描述性统计](#35-%E8%AE%A1%E7%AE%97%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1)
+    - [3.6. Function application, GroupBy & window](#36-function-application-groupby--window)
+    - [3.7. 重新索引、选择、对标签操作](#37-%E9%87%8D%E6%96%B0%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9%E5%AF%B9%E6%A0%87%E7%AD%BE%E6%93%8D%E4%BD%9C)
 
 <!-- /TOC -->
 
@@ -462,7 +464,345 @@ DataFrame.combine(
 DataFrame.combine_first(other)
 ```
 
-## 3.5. Function application, GroupBy & window
+## 3.5. 计算/描述性统计
+```python
+# 绝对值
+DataFrame.abs()
+
+# 是否所有元素都为真
+DataFrame.all(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        bool_only=None,  # 仅包含布尔列 (bool)
+        skipna=True,  # 是否排除 NaN (bool)
+        level=None, 
+        **kwargs
+    )
+
+# 是否有任何元素为真
+DataFrame.any(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        bool_only=None,  # 仅包含布尔列 (bool)
+        skipna=True,   # 是否排除 NaN (bool)
+        level=None, 
+        **kwargs
+    )
+
+# 将值限制在阈值
+DataFrame.clip(
+        lower=None,  # 最小阈值 (float or array-like)
+        upper=None,  # 最大阈值 (float or array-like)
+        axis=None,   # 轴方向 (0 or "index", 1 or "columns")
+        inplace=False,  # 是否对数据直接操作 (bool)
+        *args, 
+        **kwargs
+    )
+
+# DataFrame的列之间的相关性
+DataFrame.corr(
+        method='pearson',  # 使用方法 ("pearson", "kendall", "spearman") 
+        min_periods=1   # 最少数据量 (int)
+    )
+
+# DataFrame与other的列或行相关性
+DataFrame.corrwith(
+        other,  # DataFrame, Series 
+        axis=0,   # 轴方向 (0 or "index", 1 or "columns")
+        drop=False,  # 从结果中删除缺失的索引 (bool)
+        method='pearson'  # 使用方法 ("pearson", "kendall", "spearman") 
+    )
+
+# 计算行或列的非空元素个数
+DataFrame.count(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        level=None,  
+        numeric_only=False  # 是否仅包括浮点、整数或布尔数据 (bool)
+    )
+
+# DataFrame的列之间的协方差
+DataFrame.cov(
+        min_periods=None,  # 最少数据量 (int)
+        ddof=1  # Delta 自由度，计算中使用的除数 N - ddof
+    )
+
+# 延轴累计最大值
+DataFrame.cummax(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 是否排除 NaN 空值 (bool)
+        *args, 
+        **kwargs
+    )
+# 延轴累计最小值
+DataFrame.cummin(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 是否排除 NaN 空值 (bool)
+        *args, 
+        **kwargs
+    )
+# 延轴累乘
+DataFrame.cumprod(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 是否排除 NaN 空值 (bool)
+        *args, 
+        **kwargs
+    )
+# 延轴累加
+DataFrame.cumsum(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 是否排除 NaN 空值 (bool)
+        *args, 
+        **kwargs
+    )
+
+# 生成描述性统计数据
+DataFrame.describe(
+        percentiles=None,  # 输出中的百分位数 (list-like of numbers, default [.25, .5, .75])
+        include=None,  # 包含在结果中的数据类型白名单 ("all", list-like of dtypes or None (default))
+        exclude=None,  # 排除在结果中的数据类型白名单 ("all", list-like of dtypes or None (default))
+        datetime_is_numeric=False  # 是否将 datetime dtypes 视为数字 (bool)
+    )
+
+# 延轴计算 Dataframe 元素与 Dataframe 中另一个元素的差异
+DataFrame.diff(
+        periods=1,  # 用于计算差异的步长，接受负值 (int)
+        axis=0  # 轴方向 (0 or "index", 1 or "columns")
+    )
+
+# 对列进行表达式操作
+DataFrame.eval(
+        expr,  # 要计算的表达式字符串 (str)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        **kwargs
+    )
+
+# 指定轴的无偏峰度
+DataFrame.kurt(
+        axis=NoDefault.no_default,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+DataFrame.kurtosis(axis=NoDefault.no_default, skipna=True, level=None, numeric_only=None, **kwargs)
+# 指定轴的无偏偏态（偏度）
+DataFrame.skew(
+        axis=NoDefault.no_default,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的平均绝对偏差
+DataFrame.mad(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None
+    )
+# 指定轴的最大值
+DataFrame.max(
+        axis=NoDefault.no_default,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的中位数
+DataFrame.median(
+        axis=NoDefault.no_default,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的最小值
+DataFrame.median(
+        axis=NoDefault.no_default,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的众数
+DataFrame.mode(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        numeric_only=False,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        dropna=True  # 是否不考虑NaN (bool)
+    )
+# 指定轴的乘积
+DataFrame.prod(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        min_count=0,  # 执行操作所需的有效值数 (int)
+        **kwargs
+    )
+DataFrame.product(axis=None, skipna=True, level=None, numeric_only=None, min_count=0, **kwargs)
+# 指定轴的和
+DataFrame.sum(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        min_count=0,  # 执行操作所需的有效值数 (int)
+        **kwargs
+    )
+# 指定轴的标准差
+DataFrame.std(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        ddof=1,  # Delta 自由度，计算中使用的除数 N - ddof
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的方差
+DataFrame.var(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        ddof=1,  # Delta 自由度，计算中使用的除数 N - ddof
+        numeric_only=None,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的平均值的无偏标准误差
+DataFrame.sem(
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True,  # 计算结果时是否排除 NaN 值 (bool)
+        level=None, 
+        ddof=1,  # Delta 自由度，计算中使用的除数 N - ddof
+        numeric_only=None,   # 是否仅包括浮点、整数或布尔数据 (bool)
+        **kwargs
+    )
+# 指定轴的分位数
+DataFrame.quantile(
+        q=0.5,  # 分位数 (float or array-like)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        numeric_only=True,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        interpolation='linear'  # 分位数位于两点之间时，指定插值方法("linear", "lower", "higher", "midpoint", "nearest")
+    )
+# 指定轴的数据等级（1 到 n）
+DataFrame.rank(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        method='average',  # 如何对相同值的记录组进行排名 ("average", "min", "max", "first", "dense")
+        numeric_only=NoDefault.no_default,  # 是否仅包括浮点、整数或布尔数据 (bool)
+        na_option='keep',  # 如何对 NaN 值进行排名 ("keep", "top", "bottom")
+        ascending=True,  # 是否升序排列 (bool)
+        pct=False # 是否以百分位形式显示返回的排名 (bool)
+    )
+# 指定轴的不同元素的数量
+DataFrame.nunique(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        dropna=True  # 是否不考虑NaN (bool)
+    )
+# 唯一行的数量
+DataFrame.value_counts(
+        subset=None,  # 计算唯一组合时要使用的列 (list-like)
+        normalize=False,  # 是否返回比率 (bool)
+        sort=True,  # 是否按频率排序 (boll)
+        ascending=False,  # 是否升序排列 (bool)
+        dropna=True  # 是否不考虑NaN (bool)
+    )
+
+# 与前一行的百分比变化
+DataFrame.pct_change(
+        periods=1,  # 用于计算差异的步长，接受负值 (int)
+        fill_method='pad',  # 如何处理NaN (str)
+        limit=None,  # 停止前要填充的连续 NA 的数量 (int)
+        freq=None,  # 时间序列的增量 (DateOffset, timedelta, or str)
+        **kwargs
+    )
+
+# 每列保留小数位数
+DataFrame.round(
+        decimals=0, # 每列四舍五入的小数位数 (int, dict, Series)
+        *args, 
+        **kwargs
+    )
+```
+
+## 3.6. Function application, GroupBy & window
+```python
+# 沿 DataFrame 的轴应用函数
+DataFrame.apply(
+        func,  # 应用于每一列或每一行的函数 (function)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        raw=False,  
+        result_type=None, 
+        args=(), 
+        **kwargs
+    )
+
+# 将函数应用于 Dataframe 元素
+DataFrame.applymap(
+        func,  # Python 函数，从单个值返回单个值
+        na_action=None, # 传递NaN (None, "ignore")
+        **kwargs
+    )
+
+# 管道函数，链式编程
+DataFrame.pipe(func, *args, **kwargs)
+
+# 使用在指定轴上使用一个或多个操作聚合
+DataFrame.agg(
+        func=None,  # 用于聚合数据的功能 (function, str, list or dict)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        *args,  # 传给函数的位置参数 ()
+        **kwargs
+    )
+DataFrame.aggregate(func=None, axis=0, *args, **kwargs)
+
+# 将函数应用并，生成具有相同轴形状的DataFrame
+DataFrame.transform(
+        func,  # 用于转换数据的功能
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        *args, 
+        **kwargs
+    )
+
+# 分组
+DataFrame.groupby(
+        by=None,  # 用于确定GroupBy的组 (mapping, function, label, or list of labels)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        level=None,  
+        as_index=True, 
+        sort=True,  # 是否排序组键 (bool)
+        group_keys=True,  # 调用apply时，将组键添加到索引用于识别 (bool)
+        squeeze=NoDefault.no_default, 
+        observed=False,  # 显示分类的观测值:True/所有值:False (bool)
+        dropna=True  # 是否考虑NaN (bool)
+    )
+
+# 滑窗
+DataFrame.rolling(
+        window,  # 滑窗大小 (int, offset, or BaseIndexer subclass)
+        min_periods=None,  # 最少需要有值的观测点的数量 (int, default None)
+        center=False,  # 将窗口标签设置为窗口索引的中间 (bool)
+        win_type=None,  # 窗口的类型,截取窗的各种函数
+        on=None,  # 用于计算滚动窗口的列标签或索引 (str)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        closed=None,  # 区间的开闭 ("right","left","both","neither"," None"=="right")
+        method='single'  # 单列或表执行滑窗 ("single", "table")
+    )
+
+# 滑窗并累计
+DataFrame.expanding(min_periods=1, center=None, axis=0, method='single')  # 参数同 .rolling()
+
+# 指数权重滑窗
+DataFrame.ewm(
+        com=None, 
+        span=None, 
+        halflife=None, 
+        alpha=None, 
+        min_periods=0, 
+        adjust=True, 
+        ignore_na=False, 
+        axis=0, 
+        times=None, 
+        method='single'
+    )  # 必须提供一个参数：com、span、halflife 或 alpha
+```
+
+## 3.7. 重新索引、选择、对标签操作
 ```python
 
 ```
