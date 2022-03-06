@@ -15,6 +15,7 @@
     - [3.5. 计算/描述性统计](#35-%E8%AE%A1%E7%AE%97%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1)
     - [3.6. Function application, GroupBy & window](#36-function-application-groupby--window)
     - [3.7. 重新索引、选择、对标签操作](#37-%E9%87%8D%E6%96%B0%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9%E5%AF%B9%E6%A0%87%E7%AD%BE%E6%93%8D%E4%BD%9C)
+    - [3.8. 缺失数据处理](#38-%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
 
 <!-- /TOC -->
 
@@ -803,6 +804,180 @@ DataFrame.ewm(
 ```
 
 ## 3.7. 重新索引、选择、对标签操作
+```python
+# 标签加前缀
+DataFrame.add_prefix(prefix)
+# 标签加后缀
+DataFrame.add_suffix(suffix)
+
+# 将轴上的两个对象与每个轴索引以方法连接
+DataFrame.align(
+        other,  # DataFrame or Series
+        join='outer',  # 连接方法 ("outer", "inner", "left", "right")
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        level=None, 
+        copy=True,  # 是否返回新对象 (bool)
+        fill_value=None,  # 用于缺失值的值 (scalar)
+        method=None,  
+        limit=None, 
+        fill_axis=0, 
+        broadcast_axis=None
+    )
+# 选择一天中特定时间的值
+DataFrame.at_time(time, asof=False, axis=None)
+# 选择一天中特定时间之间的值
+DataFrame.between_time(
+        start_time, 
+        end_time, 
+        include_start=NoDefault.no_default, 
+        include_end=NoDefault.no_default, 
+        inclusive=None, 
+        axis=None
+    )
+
+# 删除指定的行或列
+DataFrame.drop(
+        labels=None,  # 要删除的索引或列标签 (single label or list-like)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        index=None,  # 指定轴的替代方法 (single label or list-like)
+        columns=None,  # 指定轴的替代方法 (single label or list-like)
+        level=None,  
+        inplace=False,  # 是否对数据直接操作 (bool)
+        errors='raise' 
+    )
+# 删除重复行
+DataFrame.drop_duplicates(
+        subset=None,  # 仅考虑某些列来识别重复项 (column label or sequence of labels)
+        keep='first',  # 确定要保留哪些重复项 ({"first", "last", False)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        ignore_index=False
+    )
+# 表示重复行的布尔值
+DataFrame.duplicated(
+        subset=None,  # 仅考虑某些列来识别重复项 (column label or sequence of labels)
+        keep='first'  # 哪条重复值标记为True ({"first", "last", False)
+    )
+
+# 两个对象是否包含相同的元素
+DataFrame.equals(other)  # 忽略列名
+
+# 根据指定的索引标签对数据框行或列取子集
+DataFrame.filter(
+        items=None,  # 保留项目中的轴标签 (list-like)
+        like=None,  # 模糊匹配 (str)
+        regex=None,  # 正则匹配 (str (regular expression))
+        axis=None  # 轴方向 (0 or "index", 1 or "columns")
+    )
+
+# 根据日期偏移选择时间序列数据的初始期间
+DataFrame.first(offset)  # 将选择的数据的偏移长度 (str, DateOffset or dateutil.relativedelta)
+# 根据日期偏移选择时间序列数据的最终期间
+DataFrame.last(offset)
+
+# 返回前几行
+DataFrame.head(n=5)
+# 返回后几行
+DataFrame.tail(n=5)
+# 请求轴上第一次出现最大值的索引
+DataFrame.idxmax(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True  # 排除空值 (bool)
+    )
+# 请求轴上第一次出现最小值的索引
+DataFrame.idxmin(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        skipna=True  # 排除空值 (bool)
+    )
+# 为series和dataframe添加或者删除索引
+DataFrame.reindex(
+        labels=None, 
+        index=None, 
+        columns=None, 
+        axis=None, 
+        method=None, 
+        copy=True, 
+        level=None, 
+        fill_value=nan, 
+        limit=None, 
+        tolerance=None
+    )
+#  两个data进行索引匹配，返回一个具有匹配索引的对象
+DataFrame.reindex_like(
+        other, 
+        method=None, 
+        copy=True, 
+        limit=None, 
+        tolerance=None
+    )
+# 更改轴标签
+DataFrame.rename(
+        mapper=None,  # 更改轴标签 (dict-like or function)
+        *, 
+        index=None,  # 更改索引 (dict-like or function)
+        columns=None,  # 更改列标签 (dict-like or function)
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        copy=True,   # 是否返回新对象 (bool)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        level=None, 
+        errors='ignore'
+    )
+# 为索引或列设置轴的名称
+DataFrame.rename_axis(
+        mapper=None,  # 轴名称属性的值 (scalar, list-like)
+        index=None,  # 索引轴名称 (scalar, list-like, dict-like or function)
+        columns=None,  # 列轴名称 (scalar, list-like, dict-like or function)
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        copy=True,  # 是否返回新对象 (bool)
+        inplace=False  # 是否对数据直接操作 (bool)
+    )
+# 重置索引
+DataFrame.reset_index(
+        level=None, 
+        drop=False, 
+        inplace=False, 
+        col_level=0, 
+        col_fill=''
+    )
+# 抽样
+DataFrame.sample(
+        n=None,  # 样本数 (int)
+        frac=None,  # 样本占比 (float)
+        replace=False,  # 是否允许多次采样 (bool)
+        weights=None,  # 权重 (str or ndarray-like)
+        random_state=None,  # 随机数种子 (int, array-like, BitGenerator, np.random.RandomState)
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        ignore_index=False
+    )
+# 更改列或行标签的索引
+DataFrame.set_axis(
+        labels,  # 新标签的值 (list-like)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        inplace=False  # 是否对数据直接操作 (bool)
+    )
+# 使用现有列设置 DataFrame 索引
+DataFrame.set_index(
+        keys,  # 列名 (label or array-like or list of labels/arrays)
+        drop=True,  # 是否删除要用作新索引的列 (bool)
+        append=False,  # 是否将索引添加到列 (bool)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        verify_integrity=False  # 是否检查新索引是否重复 (bool)
+    )
+# 根据位置索引元素
+DataFrame.take(
+        indices, # 位置 (array-like)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        **kwargs
+    )
+# 在某个索引值之前和之后截断 Series 或 DataFrame
+DataFrame.truncate(
+        before=None,  # 前
+        after=None,  # 后
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        copy=True
+    )
+```
+
+## 缺失数据处理
 ```python
 
 ```
