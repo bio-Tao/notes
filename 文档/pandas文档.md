@@ -16,6 +16,8 @@
     - [3.6. Function application, GroupBy & window](#36-function-application-groupby--window)
     - [3.7. 重新索引、选择、对标签操作](#37-%E9%87%8D%E6%96%B0%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9%E5%AF%B9%E6%A0%87%E7%AD%BE%E6%93%8D%E4%BD%9C)
     - [3.8. 缺失数据处理](#38-%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
+    - [3.9. 其它](#39-%E5%85%B6%E5%AE%83)
+    - [3.10. 绘图](#310-%E7%BB%98%E5%9B%BE)
 
 <!-- /TOC -->
 
@@ -977,7 +979,140 @@ DataFrame.truncate(
     )
 ```
 
-## 缺失数据处理
+## 3.8. 缺失数据处理
 ```python
+# 同fillna，方法为'bfill'
+DataFrame.backfill(axis=None, inplace=False, limit=None, downcast=None)
+DataFrame.bfill(axis=None, inplace=False, limit=None, downcast=None)
+# 同fillna，方法为'ffill'
+DataFrame.ffill(axis=None, inplace=False, limit=None, downcast=None)
+DataFrame.pad(axis=None, inplace=False, limit=None, downcast=None)
+# 定的方法填充 NaN 值
+DataFrame.fillna(
+        value=None,  # 用于填充的值 (scalar, dict, Series, or DataFrame)
+        method=None,  # 填充方法 ("backfill", "bfill", "pad", "ffill", None)
+        axis=None,  # 轴方向 (0 or "index", 1 or "columns")
+        inplace=False,  # 是否对数据直接操作 (bool)
+        limit=None,  # 连续NaN值被填充的最大数量 (int)
+        downcast=None
+    )
+# 使用插值方法填充 NaN 值
+DataFrame.interpolate(
+        method='linear',  # 使用的插值方法 (str)
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        limit=None,  
+        inplace=False,  # 是否对数据直接操作 (bool)
+        limit_direction=None, 
+        limit_area=None, 
+        downcast=None, 
+        **kwargs
+    )
+# 删除有空值的行或列
+DataFrame.dropna(
+        axis=0,  # 轴方向 (0 or "index", 1 or "columns")
+        how='any',  # 有缺失值就删除或全为缺失值才删除 ("any", "how")
+        thresh=None,  # 保留至少含有n个非NaN数值的行 (int)
+        subset=None,  # 在另一轴中查找缺失值 (column label or sequence of labels)
+        inplace=False  # 是否对数据直接操作 (bool)
+    )
 
+# 检查是否为空值
+pandas.isna(obj)
+pandas.isnull(obj)
+# 检查是否为非空值
+pandas.notna(obj)
+pandas.notnull(obj)
+# 值替换
+DataFrame.replace(
+        to_replace=None,  # 如何找到将被替换的值 (str, regex, list, dict, Series, int, float, or None)
+        value=NoDefault.no_default,  # 替换的值 (scalar, dict, list, str, regex)
+        inplace=False,  # 是否对数据直接操作 (bool)
+        limit=None, 
+        regex=False,  # 是否将 to_replace 和/或 value 解释为正则表达式 (bool or same types as to_replace)
+        method=NoDefault.no_default  # 使用的方法 ("pad", "ffill", "bfill", "None")
+    )
+```
+
+## 3.9. 其它
+```python
+# 转置
+DataFrame.T
+DataFrame.transpose(*args, copy=False)
+
+# 添加行
+DataFrame.append(
+        other, 
+        ignore_index=False, 
+        verify_integrity=False, 
+        sort=False
+    )
+
+# 与另一个 DataFrame 比较并显示差异
+DataFrame.compare(
+        other, 
+        align_axis=1, 
+        keep_shape=False, 
+        keep_equal=False
+    )
+
+# 将 DataFrame 或命名的 Series 对象连接合并
+pandas.merge(
+        left,  # DataFrame
+        right,  # 要合并的对象 (DataFrame or named Series)
+        how='inner',  # 要执行的合并类型 ("left", "right", "outer", "inner", "cross")
+        on=None,  # 用于连接的列或索引名 (label or list)
+        left_on=None,  # 左侧用于连接的列或索引名 (label or list, or array-like)
+        right_on=None,  # 右侧用于连接的列或索引名 (label or list, or array-like)
+        left_index=False,  # 使用左侧 DataFrame 中的索引作为连接键 (bool)
+        right_index=False,  # 使用右侧 DataFrame 中的索引作为连接键 (bool)
+        sort=False,  # 根据连接键进行排序 (bool)
+        suffixes=('_x', '_y'),  # 添加到左右重叠列名的后缀 (list-like)
+        copy=True,  # 是否复制 (bool)
+        indicator=False,  # 是否输出每行来源信息 (bool)
+        validate=None  # 检查合并是否属于指定类型 ("1:1","1:m","m:1","m:m")
+    )
+# 通过索引或者指定的列连接两个DataFrame
+DataFrame.join(
+        other,  # (DataFrame, Series, or list of DataFrame)
+        on=None, 
+        how='left',  # 如何处理这两个对象的操作
+        lsuffix='',  # 左DataFrame中重复列的后缀 (str)
+        rsuffix='',  # 右DataFrame中重复列的后缀 (str)
+        sort=False  # 根据连接键进行排序 (bool)
+    )
+
+# 使用来自另一个 DataFrame 的非 NaN 值进行修改
+DataFrame.update(
+        other,  # 应该至少有一个与原始 DataFrame 匹配的索引/列标签 (DataFrame, or object coercible into a DataFrame)
+        join='left',  
+        overwrite=True, # 非空值是否修改 (bool)
+        filter_func=None, 
+        errors='ignore'
+    )
+```
+
+## 3.10. 绘图
+```python
+# 绘图
+DataFrame.plot(*args, **kwargs)
+# 堆积面积图
+DataFrame.plot.area(x=None, y=None, **kwargs)
+# 垂直条形图
+DataFrame.plot.bar(x=None, y=None, **kwargs)
+# 水平条形图
+DataFrame.plot.barh(x=None, y=None, **kwargs)
+# 箱线图
+DataFrame.plot.box(by=None, **kwargs)
+DataFrame.boxplot(column=None, by=None, ax=None, fontsize=None, rot=0, grid=True, figsize=None, layout=None, return_type=None, backend=None, **kwargs)
+# 六边形分箱图
+DataFrame.plot.hexbin(x, y, C=None, reduce_C_function=None, gridsize=None, **kwargs)
+# 直方图
+DataFrame.plot.hist(by=None, bins=10, **kwargs)
+DataFrame.hist(column=None, by=None, grid=True, xlabelsize=None, xrot=None, ylabelsize=None, yrot=None, ax=None, sharex=False, sharey=False, figsize=None, layout=None, bins=10, backend=None, legend=False, **kwargs)
+# 线
+DataFrame.plot.line(x=None, y=None, **kwargs)
+# 饼图
+DataFrame.plot.pie(**kwargs)
+# 散点图
+DataFrame.plot.scatter(x, y, s=None, c=None, **kwargs)
 ```
